@@ -1,0 +1,14 @@
+steps:
+# 依存関係のインストール
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args: ['-c', 'pip install -r requirements.txt']
+# Detectron2のインストール
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args: ['-c', 'pip install git+https://github.com/facebookresearch/detectron2.git']
+
+# その他必要なビルドステップ
+# 例: アプリケーションのデプロイ
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']
